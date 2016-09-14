@@ -1,0 +1,22 @@
+<ion-view view-title="Contacts" ng-controller="ContactsCtrl">
+    <ion-nav-buttons side="right" ng-show="false">
+        <button class="button button-icon button-clear ion-ios-plus-empty button-positive" ng-click="openModal()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" ng-model="search" placeholder="Search">
+            </label>
+        </div>
+        <div class="list">
+            <div class="card transaction-card" ng-repeat="contact in user.contacts | filter:search">
+                <a class="item item-avatar" href="#">
+                    <img ng-src="img/{{contact.img}}" class="test" alt="profile-picture">
+                    <h2><b>{{contact.name}}</b> - {{contact.location}}</h2>
+                    <p>{{contact.account}}</p>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

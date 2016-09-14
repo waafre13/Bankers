@@ -1,0 +1,45 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <button class="button button-clear button-positive" ng-click="closeModal()">Avbryt</button>
+        <h1 class="title">Ny betaling</h1>
+        <button class="button button-clear button-positive button-bold" ng-click="addTransaction()">Betal</button>
+    </ion-header-bar>
+    <ion-content class="white">
+        <div class="list">
+            <div class="item item-divider">Informasjon</div>
+            <label class="item item-input">
+                <span class="input-label">Tittel</span>
+                <input class="text-right" type="text" placeholder="Navn på transaksjon" ng-model="newTransaction.name">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Til
+                </div>
+                <span class="nullable">
+				    <select ng-model="newTransaction.to" ng-options="contact.name for contact in user.contacts" >
+                        <option value="">Legg til kontakt</option>
+                    </select>
+				</span>
+
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Beløp</span>
+                <input class="text-right" type="tel" placeholder="Antall i kroner" ng-model="newTransaction.amount">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Fra Konto
+                </div>
+                <select ng-options="account as (account.name + ' (' + (account.balance | currency:'Kr. ':0) + ')') for account in user.accounts" ng-model="newTransaction.account">
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Budsjett
+                </div>
+                <select ng-options="budget as budget.name for budget in user.budgets" ng-model="newTransaction.budget">
+                </select>
+            </label>
+        </div>
+    </ion-content>
+</ion-modal-view>

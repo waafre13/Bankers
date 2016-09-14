@@ -1,0 +1,65 @@
+<ion-modal-view>
+	<ion-header-bar>
+		<button class="button button-clear button-positive" ng-click="closeModal()">Avbryt</button>
+		<h1 class="title">Nytt sparemål</h1>
+		<button class="button button-clear button-positive button-bold" ng-click="addSaving()">Legg til</button>
+	</ion-header-bar>
+	<ion-content class="white">
+		<div class="list">
+			<div class="item item-divider">Navn og konto</div>
+			<label class="item item-input">
+				<span class="input-label">Tittel</span>
+				<input type="text" placeholder="Navn på sparemål" ng-model="newSaving.name">
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Sjanger
+				</div>
+				<select ng-options="genre for genre in user.genres" ng-model="newSaving.genre">
+				</select>
+			</label>
+			<label class="item item-input">
+				<span class="input-label">Beskrivelse</span>
+				<input type="text" placeholder="Beskriv målet ditt" ng-model="newSaving.description">
+			</label>
+			<label class="item item-input">
+				<span class="input-label">Sparemål i kroner</span>
+				<input type="tel" placeholder="Sparemål i kroner"  ng-model="newSaving.amount">
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Konto
+				</div>
+				<select ng-options="(account.name + ' (' + (account.balance | currency:'Kr. ':0) + ')') for account in user.accounts" ng-model="newSaving.account">
+				</select>
+			</label>
+			<label class="item item-input">
+				<span class="input-label">Dato</span>
+				<input type="date" ng-model="newSaving.deadline">
+			</label>
+			<div class="item item-divider">Ønsker du trekk per transaksjon?</div>
+			<label class="item item-radio">
+				<input type="radio" name="group" ng-model="autoSave" value="show" checked>
+				<div class="item-content">
+				Ja
+				</div>
+				<i class="radio-icon ion-ios-checkmark"></i>
+			</label>
+			<label class="item item-radio">
+				<input type="radio" name="group" ng-model="autoSave" value="hide">
+				<div class="item-content">
+				Nei
+				</div>
+				<i class="radio-icon ion-ios-checkmark"></i>
+			</label>
+			<div ng-if="autoSave == 'show'">
+				<div class="item item-divider">Hvor mye ønsker du å trekkes?</div>
+				<label class="item item-input">
+					<span class="input-label">Trekk kroner:</span>
+					<input type="tel" placeholder="Beløp du ønsker å trekkes" ng-model="newSaving.auto">
+				</label>
+			</div>
+				
+		</div>
+	</ion-content>
+</ion-modal-view>

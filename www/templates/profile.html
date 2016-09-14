@@ -1,0 +1,37 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Velkommen</h1>
+        <button class="button button-clear button-positive button-bold" ng-click="saveProfile()">Lagre</button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <div class="item">
+                <h2><b>Sett opp Bankers</b></h2>
+                <pre>For best mulig nytte av applikasjonen kan du tilpasse hvor streng økonomi du vil ha. Velg først ambisjonsnivå, deretter fyll inn faste inntekter og utgifter.</pre>
+            </div>
+            <div class="item item-divider">Ambisjonsnivå</div>
+            <div class="item range">
+                <span>Mild</span>
+                <input type="range" name="ambition" min="1" max="3" ng-model="profileData.ambition">
+                <span>Streng</span>
+            </div>
+            <div class="item item-divider">Inntekter</div>
+            <div class="item">
+                <div class="item" ng-repeat="income in profileData.incomes">
+                    <span class="left">{{income.name}}</span>
+                    <span class="right">{{income.value}}</span>
+                </div>
+                <button class="button button-clear button-positive" ng-click="showIncome()">Legg til</button>
+            </div>
+            <div class="item item-divider">Faste utgifter</div>
+            <div class="item">
+                <div class="item" ng-repeat="expense in profileData.expenses">
+                    <span class="left">{{expense.name}}</span>
+                    <span class="right">{{expense.value}}</span>
+                </div>
+                <button class="button button-clear button-positive" ng-click="showExpense()">Legg til</button>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-modal-view>

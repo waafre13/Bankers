@@ -1,0 +1,25 @@
+<ion-view view-title="Sparemål" ng-controller="SavingsCtrl">
+	<ion-nav-buttons side="right" ng-show="false">
+		<button class="button button-icon button-clear ion-ios-plus-empty button-positive" ng-click="openModal()"></button>
+	</ion-nav-buttons>
+	<ion-content class="padding">
+		<h3>Totalt</h3>
+		<div class="progress-wrap">
+			<progress max="{{totalGoal}}" value="{{totalSaved}}"></progress>
+			<h4>{{totalSaved | currency:"Kr. ":0}}</h4>
+			<h4>{{totalGoal | currency:"Kr. ":0}}</h4>
+		</div>
+        <div ng-show="(user.savegoals.length < 1)">
+		    <p>Du har ingen sparingsmål enda. <br />Legg til nye sparingsmål ved å trykke pluss-ikonet oppe til høyre på skjermen.</p>
+		</div>
+		<div class="card savings-card" ng-repeat="saving in user.savegoals track by $index">
+			<a class="item item-thumbnail-left" ng-href="#/app/savings/{{saving.id}}">
+				<img ng-src="img/{{saving.genre}}.jpg" alt="logo">
+				<h2><b>{{saving.name}}</b> - {{saving.genre}}</h2>
+				<p>Mål: {{saving.amount | currency:"Kr. ":0}}</p>
+				<p>Spart: {{saving.saved | currency:"Kr. ":0}}</p>
+				<progress class="" max="{{saving.amount}}" value="{{saving.saved}}"></progress>
+			</a>
+		</div>
+	</ion-content>
+</ion-view>

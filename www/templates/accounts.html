@@ -1,0 +1,16 @@
+<ion-view view-title="Kontooversikt" ng-controller="AccountsCtrl">
+	<ion-nav-buttons side="right" ng-show="false">
+		<button class="button button-icon button-clear ion-ios-plus-empty button-positive" ng-click="openModal()"></button>
+	</ion-nav-buttons>
+	<ion-content>
+		<ion-list can-swipe="listCanSwipe">
+			<ion-item class="item" ng-repeat="account in user.accounts track by $index">
+				<h2>{{account.name}}</h2>
+				<p>{{account.balance}}</p>
+				<ion-option-button class="button-info button-assertive" ng-click="deleteAccount($index)">
+					Slett
+				</ion-option-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>

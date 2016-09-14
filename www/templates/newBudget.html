@@ -1,0 +1,33 @@
+<ion-modal-view>
+	<ion-header-bar>
+		<button class="button button-clear button-positive" ng-click="closeModal()">Avbryt</button>
+		<h1 class="title">Nytt budsjett</h1>
+		<button class="button button-clear button-positive button-bold" ng-click="addBudget()">Legg til</button>
+	</ion-header-bar>
+	<ion-content class="padding">
+		<div class="list">
+			<label class="item item-input">
+				<span class="input-label">Navn på budsjett</span>
+				<input type="text" placeholder="Navn på budsjett" ng-model="newBudget.name">
+			</label>
+			<label class="item item-input">
+				<span class="input-label">Budsjett</span>
+				<input type="tel" placeholder="Budsjett" ng-model="newBudget.amount">
+			</label>
+			<label class="item item-radio">
+				<input type="radio" name="budget" ng-model="newBudget.type" value="week">
+				<div class="item-content">
+				Ukesbudsjett
+				</div>
+				<i class="radio-icon ion-ios-checkmark"></i>
+			</label>
+			<label class="item item-radio">
+				<input type="radio" name="budget" ng-model="newBudget.type" value="month">
+				<div class="item-content">
+				Månedsbudsjett
+				</div>
+				<i class="radio-icon ion-ios-checkmark"></i>
+			</label>
+		</div>
+	</ion-content>
+</ion-modal-view>

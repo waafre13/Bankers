@@ -1,0 +1,63 @@
+<ion-view view-title="Event" ng-controller="EventDetailsCtrl">
+    <ion-nav-buttons side="right" ng-show="false">
+        <button class="button button-clear button-positive button-bold" ng-click="openModal('add')">Inviter</button>
+    </ion-nav-buttons>
+    <ion-content class="padding">
+        <div class="list card">
+            <div class="item item-avatar percentage-wrapper">
+                <img ng-src="img/{{event.img}}">
+                <h2>{{event.name}}</h2>
+                <p>{{event.location}}</p>
+                <!--                <h1 class="percentage">{{(event.saved/event.amount)*100 | currency:"":1}}%</h1>-->
+            </div>
+
+            <div class="item item-image">
+                <img ng-src="img/{{event.img}}" alt="image">
+            </div>
+
+
+
+            <div class="list">
+                <div class="item item-body">
+                    <p>
+                        {{event.description}}
+                    </p>
+                    <p class="text-right"><b>Dato: {{event.date}}</b>
+                    </p>
+                </div>
+
+                <p class="item item-icon-left">
+                    <i class="icon ion-android-star"></i>
+                    <b>Pris:</b> {{event.amount | currency:"":2}} kr
+                </p>
+
+                <p class="item item-icon-left">
+                    <i class="icon ion-android-star-half"></i>
+                    <b>Spart:</b> {{event.saved | currency:"":2}} kr
+                </p>
+
+                <div class="item range">
+                    <h2>Kr</h2>
+                    <input type="range" name="volume" min="0" max="{{event.amount}}" ng-value="{{event.saved}}" ng-model="event.saved">
+                    <p class="percentage">{{(event.saved/event.amount)*100 | currency:"":1}}%</p>
+                </div>
+
+            </div>
+
+            <a class="item item-icon-left assertive" href="#">
+                <i class="icon ion-minus"></i> Fjern event
+            </a>
+
+        </div>
+        <h4 class="padding-top">Oppdateringer</h4>
+
+        <div class="card savings-card" ng-repeat="update in event.updates">
+            <a class="item" href="#">
+                <h2><b>{{update.title}}</b></h2>
+                <p>{{update.content}}</p>
+                <p><b>Postet av: {{update.author}}</b>
+                </p>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

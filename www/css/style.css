@@ -1,0 +1,280 @@
+/* Empty. Add your own CSS if you like */
+
+body,
+html,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap {
+    width: 100%;
+}
+
+.button-bold {
+    font-weight: 500!important;
+}
+
+.wrap::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.clear {
+    width: 100%;
+    height: 1rem;
+    display: block;
+    clear: both;
+}
+
+pre {
+    font-family: inherit;
+}
+/*
+pre {
+    background: #444;
+    color: white;
+    padding: 1rem;
+}
+*/
+
+.bar-header {
+    border: 0;
+}
+
+.scroll-content {
+    background: #f2f2f2;
+}
+
+.scroll-content.white {
+    background: white;
+}
+
+.card {
+    box-shadow: none;
+    margin: 5px;
+}
+
+.col {
+    padding: 10px;
+}
+
+.chartwrap {
+    margin: 0 10px;
+    padding: 10px;
+    background: white;
+    border-radius: 2px;
+}
+
+.left {
+    float: left;
+    text-align: left;
+}
+
+.right {
+    float: right;
+    text-align: right;
+}
+
+.chart {
+    width: 100%;
+}
+
+.chart ul {
+    font-size: 0;
+    text-align: center;
+}
+
+.chart li {
+    display: inline-block;
+    font-size: .7rem;
+    margin-right: 10px;
+    line-height: 15px;
+}
+
+.chart ul li div {
+    width: 15px;
+    height: 15px;
+    float: left;
+    margin-right: 5px;
+}
+
+.chart ul li:first-child div {
+    background: rgba(52, 152, 219, 1);
+}
+
+.chart ul li:last-child div {
+    background: rgba(52, 152, 219, 0.2);
+}
+
+.overview {
+    background: rgba(52, 152, 219, .8);
+    padding: 10px;
+}
+
+.overview .money {
+    float: left;
+}
+
+.overview .difference {
+    float: right;
+}
+
+.overview .overviewChart {
+    clear: both;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.overview h1,
+.overview h2,
+.overview h3,
+.overview h4 {
+    color: white;
+    margin: 0;
+    line-height: 1;
+}
+
+progress:not([value]) {
+    /* Styling here */
+}
+
+progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 20px;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2px;
+}
+
+progress[value]::-webkit-progress-value {
+    border-radius: 2px;
+    background: #2ecc71;
+}
+
+progress[value].assertive::-webkit-progress-value {
+    background: #e74c3c;
+}
+
+.progress-wrap {
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+
+.progress-wrap h4 {
+    color: white;
+    position: absolute;
+    margin: 0;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 0.5rem;
+    top: 0;
+    left: 0;
+}
+
+.progress-wrap h4:nth-child(3) {
+    left: auto;
+    right: 0;
+}
+
+.progress-wrap progress[value]::-webkit-progress-value {
+    background: #90C695;
+}
+
+.progress-wrap progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+}
+
+.progress-wrap progress[value]::-webkit-progress-bar {
+    background: #00B16A;
+}
+
+.progress-thin {
+    height: 10px;
+}
+
+.money {
+    width: 50%;
+    height: 1rem;
+    line-height: 1rem;
+}
+
+.details .title {
+    font-weight: bold;
+}
+
+.details a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+.details > div {
+    padding: 0.5rem 0;
+}
+
+.details > div::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+/* Manuelle endringer */
+
+.savings-card progress {
+    margin: 6px 0 0 0;
+    height: 8px;
+}
+
+.percentage-wrapper {
+    position: relative;
+}
+
+.percentage-wrapper .percentage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.test {
+    fill: currentColor;
+    color: crimson;
+}
+
+.icon-adjustments ion-item i {
+    display: inline-block;
+    font-size: 2em;
+    margin-right: 14px;
+    width: 28px;
+}
+
+.icon-adjustments ion-item {
+    padding: 0px;
+}
+
+.icon-adjustments .item-content {
+    line-height: 1.4em;
+    padding: 15px;
+}
+
+.icon-adjustments ion-item p {
+    font-size: 1em;
+    display: inline-block;
+}
+
+.text-right {
+    text-align: right;
+}

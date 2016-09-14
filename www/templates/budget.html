@@ -1,0 +1,29 @@
+<ion-view view-title="Budsjett" ng-controller="BudgetCtrl">
+	<ion-nav-buttons side="right" ng-show="false">
+		<button class="button button-icon button-clear ion-ios-plus-empty button-positive" ng-click="openModal()"></button>
+	</ion-nav-buttons>
+	<ion-content class="padding">
+		<ion-refresher
+			pulling-icon="ion-ios-arrow-down"
+			pulling-text="Dra for å oppdatere"
+			on-refresh="doRefresh()">
+		</ion-refresher>
+		<div class="card col">
+			<h4>Ukesbudsjett</h4>
+			<progress class="" max="{{totalBudget}}" value="{{totalUsed}}" ng-class="{assertive: totalUsed >= totalBudget}"></progress>
+			<div class="money left">{{totalUsed}}</div>
+			<div class="money right">{{totalBudget}}</div>
+		</div>
+		<div class="card padding details" ng-show="user.budgets.length > 0">
+			<h4>Detaljer</h4>
+				<div class="item" ng-repeat="budget in user.budgets track by $index">
+					<a href="#/app/budget/{{budget.name}}">
+						<div class="title">{{budget.name}}</div>
+						<progress max="{{budget.amount}}" value="{{budget.used}}" ng-class="{assertive: budget.used >= budget.amount}"></progress>
+						<div class="money left">{{budget.used}}</div>
+						<div class="money right">{{budget.amount}}</div>
+					</a>
+				</div>
+		</div>
+	</ion-content>
+</ion-view>

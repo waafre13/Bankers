@@ -1,0 +1,19 @@
+<ion-modal-view>
+	<ion-header-bar>
+		<button class="button button-clear button-positive" ng-click="closeModal()">Avbryt</button>
+		<h1 class="title">Legg til konto</h1>
+		<button class="button button-clear button-positive button-bold" ng-click="addAccount()">Legg til</button>
+	</ion-header-bar>
+	<ion-content class="padding">
+		<div class="list">
+			<label class="item item-input">
+				<span class="input-label">Navn på konto</span>
+				<input type="text" placeholder="Navn på Konto" ng-model="newAccount.name">
+			</label>
+			<label class="item item-input">
+				<span class="input-label">Balanse på konto</span>
+				<input type="tel" placeholder="Balanse i kroner" ng-model="newAccount.balance">
+			</label>
+		</div>
+	</ion-content>
+</ion-modal-view>

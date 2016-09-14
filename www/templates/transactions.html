@@ -1,0 +1,22 @@
+<ion-view view-title="Transaksjoner" ng-controller="TransactionsCtrl">
+	<ion-nav-buttons side="right" ng-show="false">
+		<button class="button button-icon button-clear ion-ios-plus-empty button-positive" ng-click="openModal()"></button>
+	</ion-nav-buttons>
+	<ion-content>
+	    <div class="list list-inset">
+          <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" ng-model="search" placeholder="Search">
+          </label>
+        </div>
+		<div class="list">
+			<div class="card transaction-card" ng-repeat="transaction in user.transactions | filter:search">
+				<a class="item item-avatar" href="#">
+					<img ng-src="img/{{transaction.type}}.png" class="test" alt="logo">
+					<h2><b>{{transaction.name}}</b> - {{transaction.to.name}}</h2>
+					<p>{{transaction.amount | currency:"Kr. ":2}} fra {{transaction.budget.name}} budsjettet </p>
+				</a>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

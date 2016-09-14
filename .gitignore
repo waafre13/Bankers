@@ -1,0 +1,20 @@
+node_modules
+
+.tmp
+.sass-cache
+<%= appPath %>/bower_components
+coverage
+platforms
+plugins
+*.swp
+*.swo
+*.log
+*.DS_Store
+
+# gcc coverage testing tool files
+
+*.gcno
+*.gcda
+*.gcov
+
+npm-debug.log

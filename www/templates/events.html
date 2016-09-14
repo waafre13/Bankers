@@ -1,0 +1,39 @@
+<ion-view view-title="Events" ng-controller="EventsCtrl">
+    <ion-nav-buttons side="right" ng-show="false">
+        <button class="button button-icon button-clear ion-ios-plus-empty button-positive"></button>
+    </ion-nav-buttons>
+    <ion-content class="padding">
+        <section>
+            <h4>Facebook-events</h4>
+            <div ng-show="(user.events.length < 1)">
+                <p>Du har ingen facebook-events enda.
+                    <br />Legg til arrangemneter på facebook for å se dem her.</p>
+            </div>
+            <div class="card savings-card" ng-repeat="event in user.events | filter:'facebook'">
+                <a class="item item-thumbnail-left" ng-href="#/app/events/{{event.id}}">
+                    <img ng-src="img/{{event.img}}" alt="event-bilde">
+                    <h2><b>{{event.name}}</b></h2>
+                    <p>Sted: {{event.location}}</p>
+                    <p>Dato: {{event.date}}</p>
+                    <progress max="{{event.amount}}" value="{{event.saved}}"></progress>
+                </a>
+            </div>
+        </section>
+        <section>
+            <h4 class="padding-top">Andre-events</h4>
+            <div ng-show="(user.events.length < 1)">
+                <p>Du har ingen arrangement enda.
+                    <br />Legg til nye arrangement ved å trykke pluss-ikonet oppe til høyre på skjermen.</p>
+            </div>
+            <div class="card savings-card" ng-repeat="event in user.events | filter:'annet'">
+                <a class="item item-thumbnail-left" ng-href="#/app/events/{{event.id}}">
+                    <img ng-src="img/{{event.img}}" alt="event-bilde">
+                    <h2><b>{{event.name}}</b></h2>
+                    <p>Sted: {{event.location}}</p>
+                    <p>Dato: {{event.date}}</p>
+                    <progress max="{{event.amount}}" value="{{event.saved}}"></progress>
+                </a>
+            </div>
+        </section>
+    </ion-content>
+</ion-view>

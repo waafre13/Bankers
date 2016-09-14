@@ -1,0 +1,36 @@
+<ion-view view-title="Innstillinger" ng-controller="SettingsCtrl">
+  <ion-content>
+		<div class="list">
+			<div class="item item-divider">Varslingsinnstillinger</div>
+			<div class="item item-toggle">
+				Pushvarsler
+				<label class="toggle toggle-balanced">
+				<input type="checkbox" ng-model="settings.push">
+					<div class="track">
+						<div class="handle"></div>
+					</div>
+				</label>
+			</div>
+			<div class="item item-toggle">
+				Send e-post
+				<label class="toggle toggle-balanced">
+				<input type="checkbox" ng-model="settings.email">
+					<div class="track">
+						<div class="handle"></div>
+					</div>
+				</label>
+			</div>
+			<div class="item item-divider">Appinnstillinger</div>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Standardkonto
+				</div>
+				<select ng-options="idx as account.name for (idx, account) in user.accounts" ng-model="settings.defaultAccount">
+				</select>
+			</label>
+			<div class="item">
+				<button class="button button-block button-assertive" ng-click="removeUser()">Tilbakestill app</button>
+			</div>
+		</div>
+  </ion-content>
+</ion-view>

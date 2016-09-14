@@ -1,0 +1,18 @@
+<ion-view view-title="Betaling" ng-controller="PaymentsCtrl">
+	<ion-nav-buttons side="right" ng-show="false">
+		<button class="button button-icon button-clear ion-ios-plus-empty button-positive" ng-click="openModal()"></button>
+	</ion-nav-buttons>
+	<ion-content class="padding">
+		<h3>Utestående betalinger</h3>
+		<div ng-show="(user.payments.length < 1)">
+		    <p>Du har ingen utestående betalinger.</p>
+		</div>
+		<div class="card transaction-card" ng-repeat="payment in user.payments track by $index">
+            <a class="item item-avatar" href="#" ng-click="openModal(payment)">
+                <img src="img/shop_logo.png" alt="logo">
+                <h2><b>{{payment.name}}</b> - {{payment.from}}</h2>
+                <p>{{payment.amount | currency:"Kr. ":0}} - Frist: {{payment.dueDate}}</p>
+            </a>
+        </div>
+	</ion-content>
+</ion-view>

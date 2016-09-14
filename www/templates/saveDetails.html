@@ -1,0 +1,77 @@
+<ion-view view-title="Sparemål" ng-controller="SaveDetailsCtrl">
+	<ion-nav-buttons side="right" ng-show="false">
+		<button class="button button-clear button-positive button-bold" ng-click="openModal('add')">Innskudd</button>
+	</ion-nav-buttons>
+	<ion-content class="padding">
+		<div class="list card">
+
+          <div class="item item-avatar percentage-wrapper">
+            <img ng-src="img/{{genre}}.jpg">
+            <h2>{{name}}</h2>
+            <p>{{genre}}</p>
+            <h1 class="percentage">{{(saved/amount)*100 | currency:"":1}}%</h1>
+          </div>
+          
+          <div class="item item-image">
+            <img ng-src="img/{{genre}}.jpg" alt="logo">
+          </div>
+          
+          <div class="item item-body">
+            <p>
+              {{description}}
+            </p>
+          </div>
+          
+          <div class="list">
+
+              <p class="item item-icon-left">
+                <i class="icon ion-android-star"></i>
+                <b>Mål:</b> {{amount | currency:"":2}} kr
+              </p>
+
+              <p class="item item-icon-left">
+                <i class="icon ion-android-star-half"></i>
+                <b>Spart:</b> {{saved | currency:"":2}} kr
+              </p>
+              
+              <p class="item item-icon-left">
+                <i class="icon ion-android-star-half"></i>
+                <b>Kr/mnd:</b> {{saved | currency:"":2}} kr
+              </p>
+
+              <p class="item item-icon-left">
+                <i class="icon ion-android-checkbox-outline"></i>
+                <b>Frist:</b> {{deadline | date}}
+              </p>
+              
+              <p class="item item-icon-left">
+                <i class="icon ion-android-checkbox-outline"></i>
+                <b>Estimert oppnådd:</b> 21.10.2025
+              </p>
+
+              <a href="#" class="item item-icon-left">
+                <i class="icon ion-android-create"></i>
+                Endre informasjon
+              </a>
+
+            </div>
+
+          <a class="item item-icon-left assertive" href="#">
+            <i class="icon ion-minus"></i>
+            Fjern sparingsmål
+          </a>
+
+        </div>
+        <h4 class="padding-top">Historikk</h4>
+		
+		<div class="card savings-card">
+			<a class="item item-thumbnail-left" href="#">
+				<img ng-src="img/{{genre}}.jpg" alt="logo">
+				<h2><b>Innskudd/Fradrag</b> - {{genre}}</h2>
+				<p>Mål: {{amount | currency:"Kr. ":0}}</p>
+				<p>Spart: {{saved | currency:"Kr. ":0}}</p>
+				<progress class="" max="{{saving.amount}}" value="{{saving.saved}}"></progress>
+			</a>
+		</div>
+	</ion-content>
+</ion-view>

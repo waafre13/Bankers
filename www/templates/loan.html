@@ -1,0 +1,23 @@
+<ion-view view-title="Lån" ng-controller="LoansCtrl">
+    
+    <ion-nav-buttons side="right" ng-show="true">
+		<button class="button button-icon button-clear ion-ios-plus-empty button-positive" ng-click="openModal()"></button>
+	</ion-nav-buttons>
+	<ion-content class="padding">
+		<h3>Samlet lån</h3>
+		<div class="progress-wrap">
+			<progress max="{{totalLoan}}" value="{{totalPayed}}"></progress>
+			<h4>{{totalPayed | currency:"Kr. ":0}}</h4>
+			<h4>{{totalLoan | currency:"Kr. ":0}}</h4>
+		</div>
+		<div class="card savings-card" ng-repeat="loan in user.loans track by $index">
+			<a class="item item-thumbnail-left" href="#">
+				<img src="img/eiendom.jpg" alt="logo">
+				<h2><b>{{loan.name}}</b> - {{loan.description}}</h2>
+				<p>Mål: {{loan.amount | currency:"Kr. ":0}}</p>
+				<p>Spart: {{loan.payed | currency:"Kr. ":0}}</p>
+				<progress class="" max="{{loan.amount}}" value="{{loan.payed}}"></progress>
+			</a>
+		</div>
+	</ion-content>
+</ion-view>

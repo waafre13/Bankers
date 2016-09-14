@@ -1,0 +1,50 @@
+<ion-view view-title="Oversikt" ng-controller="OverviewCtrl">
+	<ion-content>
+		<ion-refresher
+			pulling-icon="ion-ios-arrow-down"
+			pulling-text="Dra for å oppdatere"
+			on-refresh="doRefresh()">
+		</ion-refresher>
+			<div class="card transaction-card" ng-if="overview.lastTransaction.name">
+				<a class="item item-avatar" href="#">
+					<img src="img/rema.jpg" alt="logo">
+					<h2><b>{{overview.lastTransaction.name}}</b></h2>
+					<p>{{overview.lastTransaction.amount | currency:"Kr. ":0}} - {{overview.lastTransaction.budget.name}}-budsjettet</p>
+				</a>
+			</div>
+		<div class="overview">
+			<div class="wrap">
+				<div class="money">
+					<h3>Totalt:</h3>
+					<h2>{{overview.total | currency:"Kr. ":0}}</h2>
+				</div>
+				<div class="difference">
+					<h2>Jan - feb</h2>
+					<h4><i class="icon" ng-class="overview.difference <= 0  ? 'ion-arrow-down-b' : 'ion-arrow-up-b'"></i> {{overview.difference | currency:"Kr. ":0}}</h4>
+				</div>
+			</div>
+			<div class="overviewChart">
+				<div class="chart">
+					<canvas chart="Line" responsive=true options="options" data="datachart"></canvas>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="card col">
+				<div class="">Penger brukt:</div>
+				<progress max="{{overview.totalBudget}}" value="{{overview.used}}" ng-class="{assertive: overview.used >= overview.totalBudget}"></progress>
+				<a ng-click="goToPage('app.budget')" class="button button-small button-clear button-positive">Budsjett</a>
+			</div>
+			<div class="card col">
+				<div class="">Penger spart:</div>
+				<progress max="{{overview.totalSave}}" value="{{overview.saved}}"></progress>
+				<a ng-click="goToPage('app.savings')"  class="button button-small button-clear button-positive">Sparing</a>
+			</div>
+		</div>
+		<div class="chartwrap">
+			<div class="chart">
+				<canvas chart="Bar" responsive=true options="smallOptions" data="smallDatachart"></canvas>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

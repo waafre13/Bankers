@@ -1,0 +1,42 @@
+<ion-modal-view>
+	<ion-header-bar>
+		<button class="button button-clear button-positive" ng-click="closeModal()">Avbryt</button>
+		<h1 class="title">Legg til lån</h1>
+		<button class="button button-clear button-positive button-bold" ng-click="addLoan()">Legg til</button>
+	</ion-header-bar>
+	<ion-content class="white">
+		<div class="list">
+			<div class="item item-divider">Informasjon</div>
+			<label class="item item-input">
+				<span class="input-label">Navn på lån</span>
+				<input type="text" placeholder="Huslån" ng-model="newLoan.name">
+			</label>
+			<label class="item item-input">
+				<span class="input-label">Type lån</span>
+				<input type="text" placeholder="Huslån" ng-model="newLoan.description">
+			</label>
+			<label class="item item-input">
+				<span class="input-label">Lånebeløp</span>
+				<input type="tel" placeholder="Transaksjon i kroner"  ng-model="newLoan.amount">
+			</label>
+			<label class="item item-input">
+				<span class="input-label">Månedlig trekk</span>
+				<input type="tel" placeholder="Transaksjon i kroner"  ng-model="newLoan.monthly">
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Konto
+				</div>
+				<select ng-options="account as (account.name + ' (' + (account.balance | currency:'Kr. ':0) + ')') for account in user.accounts" ng-model="newLoan.account">
+				</select>
+			</label>
+			<label class="item item-input item-select">
+				<div class="input-label">
+					Budsjett
+				</div>
+				<select ng-options="loan as loan.name for loan in user.loans" ng-model="newLoan.loan">
+				</select>
+			</label>
+		</div>
+	</ion-content>
+</ion-modal-view>
